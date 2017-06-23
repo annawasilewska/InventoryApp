@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Inventory App</string>
+
+    <string name="empty_view_text">Get started by adding a product</string>
+
+    <!-- Label for overflow menu option that inserts fake product data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all products data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Products</string>
+
+    <!-- Title for the activity to add a new product [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_product">Add a Product</string>
+
+    <!-- Title for the activity to edit a product [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_edit_product">Edit Product</string>
+
+    <!-- Toast message in editor when current product was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_product_successful">Product deleted</string>
+
+    <!-- Toast message in editor when current product has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_product_failed">Error with deleting product</string>
+
+    <string name="product_name">Product Name</string>
+
+    <string name="quantity">Quantity:\ </string>
+
+    <string name="price">Price:\ </string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Label for section information in the editor [CHAR LIMIT=30] -->
+    <string name="section">Section</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_product_name">Name</string>
+
+    <!-- Text hint for quantity field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_product_quantity">Quantity</string>
+
+    <!-- Text hint for price field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_product_price">Price</string>
+
+    <!-- Text hint for supplier name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_supplier_name">Supplier Name</string>
+
+    <!-- Text hint for supplier email field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_supplier_email">Supplier E-mail</string>
+
+    <!-- Units for products currency (dolars) [CHAR LIMIT=5] -->
+    <string name="unit_product_currency">$</string>
+
+    <!-- Label for dropdown menu option if the product's section is unknown [CHAR LIMIT=20] -->
+    <string name="section_unknown">Unknown</string>
+
+    <!-- Label for dropdown menu option if the section is 'makeup' [CHAR LIMIT=20] -->
+    <string name="section_makeup">Make-up</string>
+
+    <!-- Label for dropdown menu option if the section is 'skincare' [CHAR LIMIT=20] -->
+    <string name="section_skincare">Skincare</string>
+
+    <!-- Label for dropdown menu option if the section is 'hair' [CHAR LIMIT=20] -->
+    <string name="section_hair">Hair</string>
+</resources>
