@@ -5,4 +5,16 @@
 
     <!-- Margin around the floating action button in CatalogActivity -->
     <dimen name="fab_margin">20dp</dimen>
+
+    <dimen name="category_style_padding">16dp</dimen>
+
+    <dimen name="editor_units_padding">16dp</dimen>
+
+    <dimen name="spinner_layout_height">48dp</dimen>
+
+    <dimen name="spinner_padding">16dp</dimen>
+
+    <dimen name="imageview_layout_height">80dp</dimen>
+
+    <dimen name="button_sale_margin">10dp</dimen>
 </resources>

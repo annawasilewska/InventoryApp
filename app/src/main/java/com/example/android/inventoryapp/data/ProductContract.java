@@ -38,6 +38,7 @@ public class ProductContract {
         public static final String COLUMN_SUPPLIER_NAME = "supplier";
         public static final String COLUMN_SUPPLIER_EMAIL = "email";
         public static final String COLUMN_SECTION = "section";
+        public static final String COLUMN_IMAGE = "image";
 
         public static final int SECTION_UNKNOWN = 0;
         public static final int SECTION_MAKEUP = 1;

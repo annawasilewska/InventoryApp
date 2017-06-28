@@ -3,54 +3,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="@dimen/activity_margin">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold|italic"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="#2B3D4D"
-        tools:text="@string/product_name" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/quantity"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#2B3D4D" />
+            android:id="@+id/name"
+            tools:text="@string/product_name"
+            style="@style/TextviewProductName" />
 
-        <TextView
-            android:id="@+id/quantity"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#2B3D4D"
-            tools:text="0" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/quantity"
+                style="@style/TextViewQuantityPrice" />
+
+            <TextView
+                android:id="@+id/quantity"
+                style="@style/TextViewQuantityPrice"
+                tools:text="0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextViewQuantityPrice"
+                android:text="@string/price"
+                 />
+
+            <TextView
+                android:id="@+id/price"
+                style="@style/TextViewQuantityPrice"
+                tools:text="0.00" />
+        </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/price"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#2B3D4D" />
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceSmall"
-        android:textColor="#2B3D4D"
-        tools:text="0.00" />
+
+        <ImageView
+            android:id="@+id/list_item_imageview"
+            style="@style/ListitemImageview" />
+
+        <Button
+            android:id="@+id/list_item_button_sale"
+            android:text="@string/button_sale"
+            style="@style/ButtonSale" />
     </LinearLayout>
 </LinearLayout>

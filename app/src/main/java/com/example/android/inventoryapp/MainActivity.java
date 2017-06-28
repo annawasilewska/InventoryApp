@@ -2,7 +2,6 @@ package com.example.android.inventoryapp;
 
 import android.app.LoaderManager;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -41,13 +40,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+                Intent intent = new Intent(MainActivity.this, EditorActivity.class);
                 startActivity(intent);
             }
         });
 
         // Find ListView to populate
-        ListView lvItems = (ListView) findViewById(R.id.list_view_pet);
+        ListView lvItems = (ListView) findViewById(R.id.list_view_products);
 
         // Find and set empty view on the ListView, so that it only shows when the list has 0 items.
         View emptyView = findViewById(R.id.empty_view);
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+                Intent intent = new Intent(MainActivity.this, EditorActivity.class);
                 // Form the content URI that represents the specific product that was clicked on,
                 // by appending the "id" (passed as input to this method) onto the
                 // {@link ProductEntry#CONTENT_URI}.
@@ -80,24 +79,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         getLoaderManager().initLoader(PRODUCT_LOADER, null, this);
     }
 
-    /**
-     * Temporary helper method to display information in the onscreen TextView about the state of
-     * the products database.
-     */
-    private void insertProduct() {
-        // Create a new map of values, where column names are the keys
-        ContentValues values = new ContentValues();
-        values.put(ProductEntry.COLUMN_PRODUCT_NAME, "Dummy");
-        values.put(ProductEntry.COLUMN_PRODUCT_QUANTITY, 0);
-        values.put(ProductEntry.COLUMN_PRODUCT_PRICE, "0.00");
-        values.put(ProductEntry.COLUMN_SUPPLIER_NAME, "Supplier");
-        values.put(ProductEntry.COLUMN_SUPPLIER_EMAIL, "Email");
-        values.put(ProductEntry.COLUMN_SECTION, ProductEntry.SECTION_UNKNOWN);
-
-        // Insert the new row, returning the primary key value of the new row
-        Uri newUri = getContentResolver().insert(ProductEntry.CONTENT_URI, values);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu options from the res/menu/menu_catalog.xml file.
@@ -110,11 +91,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public boolean onOptionsItemSelected(MenuItem item) {
         // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
-            // Respond to a click on the "Insert dummy data" menu option
-            case R.id.action_insert_dummy_data:
-                // Do nothing for now
-                insertProduct();
-                return true;
             // Respond to a click on the "Delete all entries" menu option
             case R.id.action_delete_all_entries:
                 deleteAll();
@@ -130,7 +106,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 ProductEntry._ID,
                 ProductEntry.COLUMN_PRODUCT_NAME,
                 ProductEntry.COLUMN_PRODUCT_QUANTITY,
-                ProductEntry.COLUMN_PRODUCT_PRICE};
+                ProductEntry.COLUMN_PRODUCT_PRICE,
+                ProductEntry.COLUMN_IMAGE};
 
         // This loader will execute the ContentProvider's query method on a background thread
         return new CursorLoader(this,   // Parent activity context
@@ -143,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        // Update {@link ProductCursorAdapter} with this new cursor containing updated pet data
+        // Update {@link ProductCursorAdapter} with this new cursor containing updated product data
         productAdapter.swapCursor(data);
     }
 
@@ -154,7 +131,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     private void deleteAll(){
-
         // Call the ContentResolver to delete the product at the given content URI.
         // Pass in null for the selection and selection args because the mCurrentProductUri
         // content URI already identifies the product that we want.
